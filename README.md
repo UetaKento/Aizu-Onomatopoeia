@@ -1,7 +1,7 @@
 # Aizu-Onomatopoeia
 ## 出来たもの
 
-https://youtu.be/X1Rv87af9S0
+[![](https://img.youtube.com/vi/X1Rv87af9S0/0.jpg)](https://www.youtube.com/watch?v=X1Rv87af9S0)
 
 ## 使い方
 
