@@ -5,7 +5,6 @@ using UnityEngine;
 public class CursorText : MonoBehaviour
 {
     public Canvas m_canvasRoot;
-    //public RectTransform m_rtParent;
     public RectTransform m_rtTarget;
 
     void Update()

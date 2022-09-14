@@ -1,37 +1,90 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TouchEffect : MonoBehaviour
 {
     private bool isMouseEnter = false;
+    public Canvas canvas;
+    public Text targetText;
+
+    private Vector3 beforeMousePosition;
+    private Vector3 afterMousePosition;
+
+    private float  hideThreshold; //マウスが動かなくなったらTime.deltaTimeでこの値が蓄積していき、特定の値より大きくなったらTextを隠す。
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        beforeMousePosition = Input.mousePosition;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (isMouseEnter)
+        //afterMousePosition = Input.mousePosition;
+        //if (isMouseEnter)
+        //{
+        //    if (beforeMousePosition != afterMousePosition)
+        //    {
+        //        DisplayText("見える化！");
+        //        Debug.Log("beforeMousePosition " + beforeMousePosition + " / " + "afterMousePosition " + afterMousePosition);
+        //    }
+        //    else
+        //    {
+        //        DisplayText(" ");
+        //    }
+        //}
+        //else
+        //{
+            
+        //}
+        //beforeMousePosition = afterMousePosition;
+    }
+
+    private void OnMouseOver()
+    {
+        afterMousePosition = Input.mousePosition;
+        float mouseDistance = (afterMousePosition - beforeMousePosition).sqrMagnitude;        
+        if (beforeMousePosition != afterMousePosition)
         {
-            this.gameObject.GetComponent<Renderer>().material.color += new Color(-0.01f, -0.01f, -0.01f, 0);
-            Debug.Log("マウスは中にある\n");
+            DisplayText("つる　つる");
+            hideThreshold = 0.0f;
         }
         else
         {
-            this.gameObject.GetComponent<Renderer>().material.color -= new Color(-0.01f, -0.01f, -0.01f, 0);
-            Debug.Log("マウスは外にある\n");
+            if (hideThreshold >= 0.5f)
+            {
+                DisplayText(" ");
+                hideThreshold = 0.0f;
+            }
+            else
+            {
+                hideThreshold += Time.deltaTime;
+            }
         }
-    }
-    private void OnMouseEnter()
-    {
-        isMouseEnter = true;
+        beforeMousePosition = afterMousePosition;
     }
 
     private void OnMouseExit()
     {
-        isMouseEnter = false;
+        DisplayText(" ");
+    }
+
+    private void DisplayText(string inputText)
+    {
+        Vector2 MousePos = Vector2.zero;
+        RectTransformUtility.ScreenPointToLocalPointInRectangle(
+            canvas.GetComponent<RectTransform>(),
+            Input.mousePosition,
+            canvas.worldCamera,
+            out MousePos);
+
+        targetText.GetComponent<RectTransform>().anchoredPosition = new Vector2(
+            MousePos.x,
+            MousePos.y);
+        targetText.text = inputText;
     }
 }
+
