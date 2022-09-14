@@ -1,5 +1,10 @@
 # Aizu-Onomatopoeia
+## 出来たもの
+
+https://youtu.be/X1Rv87af9S0
+
 ## 使い方
+
 - Assets/Kenty/Scenes/OnomatopoeiaSampleのシーンを開く。
 - 適当なCubeにTouchEffect.csをアタッチして、そのスクリプトの変数に、シーン内のCanvasとTextの変数を代入する。(下記参照)
 
