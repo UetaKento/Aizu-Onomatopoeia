@@ -1,1 +1,6 @@
 # 備忘録的なメモ
+LaserとReticleを無効化にするとハンドだけを表示できる。
+
+ハンドとアバターとの接触判定は`HandTrackingExample→GrabbleItems→Grabbers→NRGrabber_RightのSphere`
+
+で行っている。つまり、このSphereのcollisionとアバターにつけたcollisionで接触判定が起きる。
