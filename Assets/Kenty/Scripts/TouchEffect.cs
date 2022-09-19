@@ -12,7 +12,7 @@ public class TouchEffect : MonoBehaviour
     private Vector3 beforeMousePosition;
     private Vector3 afterMousePosition;
 
-    private float  hideThreshold; //マウスが動かなくなったらTime.deltaTimeでこの値が蓄積していき、特定の値より大きくなったらTextを隠す。
+    private float hideThreshold; //マウスが動かなくなったらTime.deltaTimeでこの値が蓄積していき、特定の値より大きくなったらTextを隠す。
 
     // Start is called before the first frame update
     void Start()
@@ -38,7 +38,7 @@ public class TouchEffect : MonoBehaviour
         //}
         //else
         //{
-            
+
         //}
         //beforeMousePosition = afterMousePosition;
     }
@@ -46,7 +46,7 @@ public class TouchEffect : MonoBehaviour
     private void OnMouseOver()
     {
         afterMousePosition = Input.mousePosition;
-        float mouseDistance = (afterMousePosition - beforeMousePosition).sqrMagnitude;        
+        float mouseDistance = (afterMousePosition - beforeMousePosition).sqrMagnitude;
         if (beforeMousePosition != afterMousePosition)
         {
             DisplayText("つる　つる");
@@ -87,4 +87,3 @@ public class TouchEffect : MonoBehaviour
         targetText.text = inputText;
     }
 }
-
