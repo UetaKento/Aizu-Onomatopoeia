@@ -7,6 +7,8 @@ public class HandTouchEffect : MonoBehaviour
 {
     //public Canvas overrayCanvas;
     [SerializeField]
+    Camera targetCamera;
+    [SerializeField]
     private Text targetText;
     [SerializeField]
     private string displayWord = "ツルツル";
@@ -37,7 +39,7 @@ public class HandTouchEffect : MonoBehaviour
         foreach (ContactPoint point in collision.contacts)
         {
             Vector2 screenPos = RectTransformUtility.WorldToScreenPoint(
-                null,
+                targetCamera,
                 point.point
                 );
 
