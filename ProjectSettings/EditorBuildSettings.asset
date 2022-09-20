@@ -129,8 +129,8 @@ EditorBuildSettings:
     path: Assets/Scenes/SimpleAR/SimpleAR.unity
     guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 1
-    path: Assets/Kenty/Scenes/FaceBlendShapesGame.unity
-    guid: fbb0c5f15838a4df0a4aa023a4c18ea0
+    path: Assets/Kenty/Scenes/OnomatopoeiaHandTracking.unity
+    guid: 6575541a94e7144439bf8991c832e22d
   m_configObjects:
     UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: f8ce26fe3bc69499b9be4b2378e97a94,
       type: 2}
